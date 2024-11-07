@@ -50,7 +50,6 @@ def get_employee(employee_id):
 if __name__ == "__main__":
     """ get employee id make sure its int"""
 
-
     try:
         employee_id = int(sys.argv[1])
     except ValueError:
