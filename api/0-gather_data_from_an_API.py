@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ get data from api"""
-import sys
 import requests
+import sys
 
 
 def get_employee(employee_id):
