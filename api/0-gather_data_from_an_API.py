@@ -24,5 +24,9 @@ def get_employee(employee_id):
     """ now get data from parsed data"""
     """ use get to access keys, first we get 'name' """
     EMPLOYEE_NAME = user_data.get("name")
-    NUMBER_OF_DONE_TASKS = 
+    """ check for tasks that are 'completed' """
+    DONE_TASKS = [task for task in todos_data if task.get('completed')]
+    """ now we know how many tasks total, and how many are done"""
+    NUMBER_OF_DONE_TASKS = len(DONE_TASKS)
+    TOTAL_NUMBER_OF_TASKS = len(todos_data)
 
