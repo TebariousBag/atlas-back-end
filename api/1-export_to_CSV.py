@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """ get data from api"""
 """ imports in alphabetical order """
-
 import csv
 import requests
 import sys
+
 
 def get_employee(employee_id):
     """ get data """
@@ -64,6 +64,7 @@ def get_employee(employee_id):
     """ Print the content of the CSV file for verification """
     with open(filename, mode='r') as file:
         print(file.read())
+
 
 """ functionallity to run as main """
 if __name__ == "__main__":
