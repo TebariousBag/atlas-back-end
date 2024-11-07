@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ get data from api"""
-""" imports in alphabetical order """
 import csv
 import requests
 import sys
