@@ -28,6 +28,9 @@ def get_employee(employee_id):
     EMPLOYEE_NAME = user_data.get("name")
     """ get key data 'id' """
     USER_ID = user_data.get("id")
+    """ get key username """
+    USERNAME = user_data.get("username")
+
     """ check for tasks that are 'completed' """
     DONE_TASKS = [task for task in todos_data if task.get('completed')]
     """ now we know how many tasks total, and how many are done"""
@@ -53,7 +56,7 @@ def get_employee(employee_id):
         for task in todos_data:
             csvwriter.writerow([
                 USER_ID,
-                EMPLOYEE_NAME,
+                USERNAME,
                 task.get("completed"),
                 task.get("title")
                 ])
