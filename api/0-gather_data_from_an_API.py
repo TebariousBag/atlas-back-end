@@ -41,5 +41,11 @@ def get_employee(employee_id):
 
 """ functionallity to run as main """
 if __name__ == "__main__":
-    get_employee(sys.argv[1])
-
+    """ get employee id make sure its int"""
+    try:
+        employee_id = int(sys.argv[1])
+    except ValueError:
+        print("must be int")
+        sys.exit(1)
+    """ call the function"""
+    get_employee(employee_id)
