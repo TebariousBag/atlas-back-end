@@ -8,15 +8,17 @@ def get_employee(employee_id):
     """ get data """
 
     """ get user info and todos info from the site provided"""
-    user_request = requests.get(f"https://jsonplaceholder.typicode.com/users/{employee_id}")
-    todos_request = requests.get(f"https://jsonplaceholder.typicode.com/todos/{employee_id}")
-    
+    user_request = requests.get(
+        f"https://jsonplaceholder.typicode.com/users/{employee_id}")
+    todos_request = requests.get(
+        f"https://jsonplaceholder.typicode.com/todos?userId={employee_id}")
+
     """ status request 200 is success """
     """ if not 200 then error """
     if user_request.status_code != 200 or todos_request.status_code != 200:
         print("error")
         return
-    
+
     """ parse json data and convert to python """
     user_data = user_request.json()
     todos_data = todos_request.json()
@@ -29,4 +31,15 @@ def get_employee(employee_id):
     """ now we know how many tasks total, and how many are done"""
     NUMBER_OF_DONE_TASKS = len(DONE_TASKS)
     TOTAL_NUMBER_OF_TASKS = len(todos_data)
+
+    """ print statement how many tasks are done """
+    print(f"Employee {EMPLOYEE_NAME} is done with tasks("
+          f"{NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
+    """ PRINT EACH TASK """
+    for task in DONE_TASKS:
+        print(f"\t {task.get('title')}")
+
+""" functionallity to run as main """
+if __name__ == "__main__":
+    get_employee(sys.argv[1])
 
