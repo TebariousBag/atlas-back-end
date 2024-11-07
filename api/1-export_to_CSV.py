@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ get data from api"""
+import csv
 import requests
 import sys
 
@@ -44,7 +45,18 @@ def get_employee(employee_id):
     """ create csv file """
     """ from data we have 'id' """
     filename = f"{USER_ID}.csv"
+    """ open filename, write as file """
+    with open(filename, mode='w') as file:
+        """ create writer file """
+        """ 2 args, file, quoting= all wraps each in quotes """
+        csvwriter = csv.writer(file, quoting=csv.QUOTE_ALL)
+        """ write to csv file specified format """
+        for task in todos_data:
+            csvwriter.writerow(
+                [USER_ID, EMPLOYEE_NAME, task.get("completed"),
+								task.get("title")])
 
+        print(f"data saved to {filename}")
 
 """ functionallity to run as main """
 if __name__ == "__main__":
