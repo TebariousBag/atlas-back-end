@@ -23,7 +23,8 @@ def get_employee():
         USER_ID = user.get("id")
         USERNAME = user.get("username")
         """ get tasks for each user """
-        user_tasks = [task for task in todos_data if task.get('userId') == USER_ID]
+        user_tasks = [
+            task for task in todos_data if task.get('userId') == USER_ID]
         """ list of tasks"""
         task_list = [{
             "username": USERNAME,
@@ -43,7 +44,7 @@ def get_employee():
     """ print the data"""
     with open(filename_json, mode='r') as file:
         print(file.read())
-    
+
 
 if __name__ == "__main__":
     get_employee()
