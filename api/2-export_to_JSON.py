@@ -73,13 +73,12 @@ def get_employee(employee_id):
     for task in todos_data:
         """ append task_list with received data for each """
         task_list.append({
-			"task": task.get("title"),
-			"completed": task.get("completed"),
-            "username": USERNAME
-		})
+            "task": task.get("title"),
+            "completed": task.get("completed"),
+            "username": USERNAME})
     """ dictionary with key USER_ID as str """
     dict = {str(USER_ID): task_list}
-    
+
     """ create filename json like previous """
     filename_json = f"{USER_ID}.json"
     """ open file and write """
@@ -88,7 +87,7 @@ def get_employee(employee_id):
         json.dump(dict, file)
     """ print to confirm save """
     print(f"saved to {filename_json}")
-    
+
     """ read and print the file """
     with open(filename_json, mode='r') as file:
         print(file.read())
